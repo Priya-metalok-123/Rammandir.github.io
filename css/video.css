@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+.min-screen{
+    position: relative;
+}
+.min-screen .screen-box{
+    display: none;
+}
+.min-screen .screen-box.active{
+    display: block;
+}
+.min-screen .screen-box .screen{
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+.min-screen .screen-box .screen video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation: fadein 0.4s linear;
+}
+@keyframes fadein{
+    0%{
+        transform: scale(1.4);
+    }
+}
+.min-screen .screen-box .screen .content{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-flow: column;
+    /* background: rgba(0, 0, 0, 0.7); */
+}
+.min-screen .screen-box .screen .content h3{
+    font-size: 3rem;
+    color: #fff;
+    animation: anymat 0.4s linear 0.4s backwards;
+    
+}
+.min-screen .screen-box .screen .content p{
+    font-size: 1rem;
+    color: #fff;
+    padding: 1rem;
+    line-height: 1.5rem;
+    animation: anymat 0.4s linear 0.6s backwards;
+}
+.min-screen .screen-box .screen .content .btn{
+    display: inline-block;
+    padding: 0.5rem 4rem;
+    background: none;
+    border: 0.2rem solid #333;
+    color: rgb(224, 224, 224);
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s linear;
+    animation: anymat 0.4s linear 0.2s backwards;
+}
+@keyframes anymat{
+    0%{
+        opacity: 0;
+        transform: scale(0.5) translateY(-50px);
+    }
+}
+
+.min-screen #next,
+.min-screen #back{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: #fff;
+    color: rgb(95, 95, 95);
+    font-weight: bold;
+    height: 2.2rem;
+    width: 2.2rem;
+    line-height: 1.2rem;
+    font-size: 2rem;
+    cursor: pointer;
+   padding: 0.8rem;
+}
+.min-screen #next{
+    right: 0;
+}
+.min-screen #back{
+    left: 0;
+}
